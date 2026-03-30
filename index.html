@@ -22,6 +22,7 @@
         Front-End Web Designer</h1>
     <nav aria-label="Primary">
       <ul class="nav-list">
+        <li><button id="contact-btn" class="nav-btn" style="margin: 0; padding: 8px 14px; background: linear-gradient(145deg, #ff9a82, #FF8066); color: #1E2230; border: none; border-radius: 999px; font-size: 0.86rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.35); transition: all 0.2s ease; font-family: 'Oswald', 'Arial Narrow', Arial, sans-serif; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid rgba(30, 34, 48, 0.22);">📧 Contact Me</button></li>
         <li class="nav-dropdown">
           <a class="menu-toggle menu-toggle-open" href="#menu-open" aria-haspopup="true">Menu</a>
           <a class="menu-toggle menu-toggle-close" href="#menu-closed" aria-haspopup="true">Menu</a>
@@ -81,73 +82,27 @@
 
   <!-- Footer section -->
   <footer id="footer-feedback">
-    <p>&copy; 2026 FreeLivingDesigns. All rights reserved.</p>
     <div class="feedback-section">
       <p class="feedback-label">Rate this website:</p>
       <div class="feedback-buttons">
-        <a href="#rate-up" class="emoji-btn" title="Thumbs Up">👍</a>
-        <a href="#rate-excited" class="emoji-btn" title="Excited">😍</a>
-        <a href="#rate-party" class="emoji-btn" title="Party">🎉</a>
+        <button class="emoji-btn" data-emoji="👍" title="Thumbs Up">👍</button>
+        <button class="emoji-btn" data-emoji="😍" title="Excited">😍</button>
+        <button class="emoji-btn" data-emoji="🎉" title="Party">🎉</button>
       </div>
+      <div class="emoji-counters">
+        <div class="counter" id="counter-up"><span class="emoji-icon">👍</span> <span class="count">0</span></div>
+        <div class="counter" id="counter-excited"><span class="emoji-icon">😍</span> <span class="count">0</span></div>
+        <div class="counter" id="counter-party"><span class="emoji-icon">🎉</span> <span class="count">0</span></div>
+      </div>
+      <p id="vote-session-message" class="vote-session-message" aria-live="polite"></p>
     </div>
+    <p class="copyright">&copy; 2026 FreeLivingDesigns. All rights reserved.</p>
   </footer>
 
-  <div id="rate-up" class="feedback-overlay">
-    <div class="feedback-modal">
-      <p class="feedback-thanks">Thank you for your feedback!</p>
-      <form class="feedback-form" action="mailto:freelivingdesigns@gmail.com" method="post" enctype="text/plain">
-        <input type="hidden" name="Rating" value="Thumbs Up 👍">
-        <label for="feedback-up">Send me feedback on the website:</label>
-        <textarea id="feedback-up" name="Message" rows="5" required></textarea>
-        <div class="feedback-actions">
-          <button type="submit">Send Feedback</button>
-          <a class="feedback-close" href="#footer-feedback">Close</a>
-        </div>
-      </form>
-    </div>
-  </div>
 
-  <div id="rate-excited" class="feedback-overlay">
-    <div class="feedback-modal">
-      <p class="feedback-thanks">Thank you for your feedback!</p>
-      <form class="feedback-form" action="mailto:freelivingdesigns@gmail.com" method="post" enctype="text/plain">
-        <input type="hidden" name="Rating" value="Excited 😍">
-        <label for="feedback-excited">Send me feedback on the website:</label>
-        <textarea id="feedback-excited" name="Message" rows="5" required></textarea>
-        <div class="feedback-actions">
-          <button type="submit">Send Feedback</button>
-          <a class="feedback-close" href="#footer-feedback">Close</a>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <div id="rate-party" class="feedback-overlay">
-    <div class="feedback-modal">
-      <p class="feedback-thanks">Thank you for your feedback!</p>
-      <form class="feedback-form" action="mailto:freelivingdesigns@gmail.com" method="post" enctype="text/plain">
-        <input type="hidden" name="Rating" value="Party 🎉">
-        <label for="feedback-party">Send me feedback on the website:</label>
-        <textarea id="feedback-party" name="Message" rows="5" required></textarea>
-        <div class="feedback-actions">
-          <button type="submit">Send Feedback</button>
-          <a class="feedback-close" href="#footer-feedback">Close</a>
-        </div>
-      </form>
-    </div>
-  </div>
 
   <a id="scroll-step" class="scroll-top scroll-top-stage1" href="#scroll-step" aria-label="Activate scroll to top">Top</a>
   <a class="scroll-top scroll-top-stage2" href="#top" aria-label="Scroll back to top">↑ Top</a>
-  <p>
-    <img style="border:0;width:88px;height:31px"
-      src="images/W3C CSS validity 1.png"
-      alt="Valid CSS!">
-    </p>
-    <p>
-    <img style="border:0;width:88px;height:31px"
-      src="images/W3C CSS validity 2.png"
-      alt="Valid CSS!">
-    </p>
+  <script src="script.js"></script>
 </body>
 </html>
