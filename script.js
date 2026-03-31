@@ -53,7 +53,7 @@ function showContactPopup() {
       Thanks for your interest! You can reach me at:
     </p>
     <p style="font-weight: 600; color: #845EC2; font-size: clamp(1rem, 4vw, 1.1rem); margin: 20px 0; overflow-wrap: anywhere; word-break: break-word;">
-      freelivingdesigns@gmail.com
+      <a href="mailto:freelivingdesigns@gmail.com" style="color: #845EC2; text-decoration: underline; text-underline-offset: 2px;">freelivingdesigns@gmail.com</a>
     </p>
     <p style="color: #666; font-size: 0.9em; margin-bottom: 25px;">
       I'd love to hear about your project ideas and discuss how I can help!
@@ -225,6 +225,37 @@ document.addEventListener('DOMContentLoaded', function() {
       showContactPopup();
     });
   }
+
+  // Initialize FAQ accordion behavior
+  const faqQuestions = document.querySelectorAll('.faq-list li h3');
+  faqQuestions.forEach(function(question) {
+    const answer = question.nextElementSibling;
+    if (!answer) {
+      return;
+    }
+
+    // Set initial collapsed state
+    answer.style.display = 'none';
+    question.classList.add('faq-question');
+    question.setAttribute('role', 'button');
+    question.setAttribute('tabindex', '0');
+    question.setAttribute('aria-expanded', 'false');
+
+    const toggleAnswer = function() {
+      const isOpen = answer.style.display === 'block';
+      answer.style.display = isOpen ? 'none' : 'block';
+      question.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      question.classList.toggle('is-open', !isOpen);
+    };
+
+    question.addEventListener('click', toggleAnswer);
+    question.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleAnswer();
+      }
+    });
+  });
 
   // Initialize Emoji Buttons and Counters
   const emojiButtons = document.querySelectorAll('.emoji-btn');
