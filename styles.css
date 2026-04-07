@@ -507,6 +507,39 @@ figure {
   transform: translateY(-1px);
 }
 
+.contact-banner {
+  max-width: 900px;
+  margin: 8px auto 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-image: url('images/contact-banner-desktop.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+}
+
+.contact-banner-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.contact-banner .nav-btn {
+  text-decoration: none;
+  background: rgb(255, 128, 102);
+  border: 2px solid rgba(30, 34, 48, 0.65);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 639px) {
+  .contact-banner {
+    background-image: url('images/contact-banner-mobile.jpg');
+  }
+}
+
 /* ─── FOOTER ─── */
 footer {
   text-align: center;

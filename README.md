@@ -1,125 +1,96 @@
 # FreeLivingDesigns Portfolio
-**Tom Black — FEWD — February 2026 — Assignment 5**
+
+**Tom Black — FEWD — February 2026 — Assignment 6**
+## Contact Form Assignment (April 2026)
+---
+
+### What the form does and how it works
+
+I created a standalone contact form page at `contact/contact.html`. The form contains three input fields — name, email, and message — along with a submit button. JavaScript prevents the default browser form submission so the page never reloads. Instead, all three fields are validated on the spot. If every field passes validation, a confirmation modal window appears showing the submitted details. If any field fails, the form stays open and error messages are shown directly below the relevant field.
+
+I also linked the contact form in two places across the main portfolio page. First, I added an Open Contact Form button inside the existing Contact Me popup modal so visitors can go straight to the form from there. Second, I built a full-width image banner section near the bottom of the portfolio page, sitting just before the footer, with a centred button that opens the contact form. The banner uses a custom desktop graphic and a separate mobile graphic that swaps in automatically on smaller screens using a CSS media query.
 
 ---
 
-## About This Project
+### JavaScript validation I used
 
-This project is a responsive portfolio website built with semantic HTML, external CSS, and basic JavaScript. For this assignment, I needed to add a JavaScript interaction to my existing site and explain how it works in the README. The aim was to show a basic understanding of JavaScript syntax, functions, event listeners, and DOM manipulation while keeping the feature relevant to the design of my portfolio.
+All validation logic lives in `contact/contactscript.js`. I wrote a separate named function for each field so each one is self-contained and easy to read.
 
-I chose to build three connected JavaScript interactions. The first is a Contact Me popup modal that opens without leaving the page. The second is an emoji-based celebration and vote counter in the footer, where users can click an emoji to trigger an animation and update a visible total. The third is an FAQ accordion where questions can be expanded and collapsed for easier reading. This allowed me to demonstrate beginner JavaScript in a practical way while improving the user experience of the site.
+- **Name** — checked that the field is not empty and that it contains only letters and spaces using the regex `/^[A-Za-z\s]+$/`.
+- **Email** — checked that the field is not empty and matches a valid email format using the regex `/^[^\s@]+@[^\s@]+\.[^\s@]+$/`.
+- **Message** — checked that the field is not empty and that it is at least 10 characters long.
 
-Core files:
-- `index.html` — all page content and structure
-- `styles.css` — all styling, layout, animation, and responsive rules
-- `script.js` — all JavaScript behaviour for the popup, emoji celebration effect, vote counter, session vote lock, and FAQ accordion toggle
-
-The site presents:
-- A branded header with custom navigation
-- An About Me section with a profile image
-- A portfolio section with three featured project videos and thumbnails
-- A floating two-step scroll-to-top control for ease of use and accidental "top" presssing.
-- A custom Contact Me popup triggered from the navigation
-- A footer with an emoji-based feedback rating, celebration animation, persistent counters, and one-vote-per-page-load control
-- A dedicated FAQ section with clickable, expandable questions and keyboard-friendly interaction
-
-## JavaScript Implementation: Contact Popup, Emoji Counter, and FAQ Accordion
-
-For this assignment, I added JavaScript interactions in `script.js` to make the site more interactive and to demonstrate core beginner JavaScript skills.
-
-### What the popup or interaction does
-
-- The Contact Me button opens a custom popup modal with my contact details.
-- The emoji rating buttons trigger a large celebration animation on screen.
-- Each emoji click increases its matching counter under the rating buttons.
-- After one vote, the page disables further voting and shows a message telling the user to reload to vote again.
-- The total vote counters stay saved using `localStorage`.
-- The FAQ section uses clickable question headings to show and hide answers, helping viewers scan only the information they need.
-
-### What user action triggers it
-
-- Clicking the Contact Me button in the navigation opens the popup.
-- Clicking any of the emoji buttons in the footer starts the celebration effect and updates the counter.
-- Clicking an FAQ question heading opens the related answer, and clicking it again closes it.
-
-### Why I chose that interaction
-
-- I chose a contact popup because it is useful, simple to understand, and relevant to a portfolio site.
-- I chose the emoji celebration counter because it gives the page more personality and makes the feedback area feel more interactive.
-- I added the FAQ accordion so visitors can move through common questions faster without reading one long text block.
-- These features also allowed me to demonstrate event handling, functions, DOM updates, keyboard accessibility, and saved data in a practical way.
-
-### JavaScript tools and techniques I used
-
-- **Variables:** I used variables such as `hasVotedThisSession`, `emoji`, `count`, `storageKey`, and `counterId` to store temporary page state, identify the selected emoji, and keep track of saved totals.
-- **Functions:** I split the code into named functions such as `showContactPopup()`, `closeContactPopup()`, `createCelebrationEmoji()`, `updateCounter()`, `disableEmojiButtons()`, `showVoteSessionMessage()`, and `loadCounters()`. This kept the code easier to read and made each task more focused.
-- **Event listeners:** I used `addEventListener()` to respond to button clicks, popup close actions, backdrop clicks, and hover effects. This is what makes the page interactive instead of static.
-- **DOM manipulation:** I used `document.createElement()`, `appendChild()`, `getElementById()`, `querySelectorAll()`, `querySelector()`, `innerHTML`, and `textContent` to create popup elements, select vote buttons and FAQ headings, and update visible text on the page.
-- **Conditional logic:** I used `if` statements to check whether elements exist and to stop users voting more than once per page load.
-- **Loops:** I used `forEach()` to attach the same voting behavior to all emoji buttons, and a `for` loop with `setTimeout()` to create the staggered celebration effect.
-- **Timing functions:** I used `setTimeout()` both for the popup fade-out removal and for the delayed bursts of celebration emojis.
-- **Browser storage:** I used `localStorage.getItem()` and `localStorage.setItem()` so the emoji totals continue to exist even after the page reloads.
-- **Responsive styling in JavaScript:** Because the popup is created in JavaScript, I also had to apply responsive inline styles directly in the script, including a flexible modal width, reduced padding on small screens, and text wrapping for the email address.
-- **Accessibility attributes:** For FAQ interaction, I added keyboard support with Enter/Space and managed `aria-expanded`, `role`, and `tabindex` states so the accordion is easier to use.
-
-### Challenges and decisions while working with JavaScript
-
-- One of the biggest decisions was moving away from the earlier CSS-only feedback approach. That version could animate and reveal content, but it could not keep a real running total. To fix this, I rebuilt the feedback area with JavaScript so each click could trigger logic, update the DOM, and store data properly.
-- Another challenge was deciding how the counters should behave over time. I wanted the totals to keep growing across visits, but I also wanted to prevent repeated clicking in a single page load. I solved this by using two different approaches together: `localStorage` for long-term saved totals, and the `hasVotedThisSession` variable for short-term control during the current page session.
-- I also had to make sure the celebration effect felt intentional instead of chaotic. A single large emoji looked too static, so I changed it to multiple emojis appearing in quick sequence using a loop and `setTimeout()`. That gave the footer a more obvious celebration effect without needing advanced JavaScript.
-- The contact popup also needed a cleaner close interaction. At first, a single close button would have worked, but it felt better to let users click outside the modal as well. I solved this by attaching an event listener to the backdrop and checking whether the backdrop itself was clicked before closing the popup.
-- I found a mobile-specific issue in the contact popup where the email address could become cut off on very small screens. I fixed this by adjusting the popup width to fit within the viewport, reducing the popup padding, and adding text wrapping rules so the email address can break onto a new line instead of overflowing.
-- Another issue was user feedback after voting. If the emoji buttons simply disabled with no explanation, it would feel broken. I fixed this by adding a dedicated status message under the counters that appears after one vote and explains that the page must be reloaded to vote again.
-- A final challenge was visual alignment on larger screens. The message under the counters did not stay centered properly at first, so I adjusted the layout and styling until the text remained clearly positioned under the voting area across wider screen sizes.
-- For the FAQ, a key challenge was keeping it compact but still easy to use. I solved this by making each question heading clickable with a second-click close behavior, then adding keyboard support and visual open/closed indicators (+ / -) so users can quickly understand what is expanded.
-- I also adjusted FAQ heading sizing at mobile breakpoints so the question text remains readable without dominating small screens.
-
-### Core JavaScript techniques demonstrated
-
-- Variables and conditionals
-- Named functions for reusable behavior
-- Event listeners with `addEventListener`
-- DOM creation and updates (`createElement`, `appendChild`, `textContent`)
-- Class and attribute updates (`classList.toggle`, `setAttribute`) for FAQ open/closed and accessibility state
-- Timing control using `setTimeout`
-- Browser storage with `localStorage`
-
-### Recent Interaction Updates
-
-- Added a new **FAQ section** below the portfolio area in its own styled content box.
-- Implemented **click-to-toggle FAQ questions** so answers open on first click and close on second click, improving readability for visitors.
-- Added keyboard-friendly behavior for FAQ toggles (Enter and Space) to improve accessibility.
-- Updated the Contact Me popup so the email address is now a **clickable `mailto:` link** for faster direct contact.
-- Improved FAQ heading sizing on smaller screens so text remains balanced and easier to scan on mobile devices while still matching section hierarchy.
+Each validation function is triggered on the `input` event so error messages appear instantly as the user types, without waiting for a submit attempt. When a field passes, the error message is cleared, the border turns green, and the bracketed helper note next to the label disappears. When a field fails, the border turns red, the error message appears below the field, and the helper note returns. This is handled by a shared `setFieldState()` function that adds or removes the `is-valid` and `is-invalid` CSS classes and updates the `aria-invalid` attribute for accessibility.
 
 ---
 
-## Final Reflection
+### How the modal interaction functions
 
-This assignment helped me improve how I approach front-end development from a mobile-first perspective. I became more confident using Flexbox and CSS Grid together, structuring semantic HTML, and building interactive features with JavaScript. I am most proud of replacing a complex CSS-only feedback form with a clean, celebratory rating system that provides instant visual feedback and persistent counters, and adding an FAQ accordion that makes long-form content easier to navigate. The interaction updates demonstrate practical JavaScript patterns like DOM creation, event handling, state toggling, accessibility attributes, and data persistence. Going forward, I want to continue exploring more advanced JavaScript interactions while maintaining performance and accessibility. I'm excited to build more complex features in future modules.
+When the form is submitted and all three fields have passed validation, JavaScript reads the trimmed values from each input, injects them into the modal display elements using `textContent`, and opens the modal by adding an `is-open` class and setting `aria-hidden` to false.
 
-## Final Submission Checklist
+The modal can be closed in three ways:
+1. Clicking the Close button inside the modal
+2. Clicking anywhere on the dark backdrop behind the modal
+3. Pressing the Escape key
 
-- `script.js` created and linked correctly to `index.html`
-- JavaScript popup interaction completed with Contact Me modal
-- Emoji celebration interaction completed with animated on-screen feedback
-- Vote counter completed and updates dynamically in the DOM
-- `localStorage` used so vote totals persist after page reload
-- One-vote-per-page-load session control completed
-- Persistent post-vote status message completed
-- FAQ section added below portfolio with JavaScript accordion behavior
-- FAQ questions toggle open/closed on click and support keyboard activation (Enter/Space)
-- Event listeners and named functions used throughout the JavaScript file
-- HTML updated where needed to support JavaScript buttons, counters, and message output
-- CSS updated where needed to support the popup, celebration animation, FAQ accordion indicators, and responsive FAQ heading sizing
-- JavaScript checked for errors and README updated to explain the interaction
+All three methods call the same `closeModal()` function, which removes the `is-open` class and resets `aria-hidden` to true.
 
-With that said, I hope you enjoy the project I present you and am very eager to jump into the next module.
 ---
+
+### File organisation — the contact folder
+
+I made a deliberate decision to group all three contact-related files into a dedicated `contact/` subfolder:
+
+- `contact/contact.html`
+- `contact/contact.css`
+- `contact/contactscript.js`
+
+I chose this structure because I was not entirely sure at first how the contact scripts would grow or whether they might conflict with the existing `script.js` on the main page. Keeping everything isolated in its own folder meant that if anything needed reworking, it would not affect the main site files at all. It also made the project much easier to navigate in Code Editor, since all three contact files sit together as a clear group rather than being scattered at the root level. The back link in `contact.html` points to `../index.html` and the main page links to `contact/contact.html`, so routing works correctly across the folder boundary.
+
+---
+
+### Decisions and challenges faced
+
+- **Live validation vs submit-only validation** — I chose to validate on the `input` event rather than only on submit because it gives faster, friendlier feedback. The trade-off is that messages can appear while the user is still mid-way through typing, so I made sure errors only show after the field has been touched at least once.
+- **Green and red field states** — I added visual outline states so users get immediate colour feedback alongside text error messages. A shared `setFieldState()` helper keeps the logic clean by handling class toggling and `aria-invalid` in one place.
+- **Helper text disappearing on valid** — Short bracketed hints next to each label such as "(used for naming purpose)" are wired to disappear as soon as the field turns green, keeping the form tidy once a field is complete.
+- **Contact folder path management** — Moving the files into a subfolder meant carefully updating all relative paths. The CSS and JS references inside `contact.html` stayed relative within the folder, but the back link and the links from `index.html` needed `../` and `contact/` prefixes respectively.
+- **Banner image responsive swap** — I created two separate banner graphics and used a CSS `max-width: 639px` media query to swap between them, so the image always looks intentional on both desktop and mobile rather than relying on a single image to crop acceptably at all widths.
+- **Connecting the contact form to the existing popup** — Adding the Open Contact Form button inside the existing Contact Me popup modal meant updating the `innerHTML` string inside `script.js` carefully, keeping the layout centred with both the new link button and the original close button displayed side by side.
+- **Form placement and the banner section** — One challenge I faced was deciding where to surface the contact form link on the main portfolio page. Placing it only inside the navigation popup felt hidden, so I built a dedicated full-width image banner section just above the footer as a second entry point. Getting the banner image to sit correctly took several adjustments to `background-size`, `background-position`, and `min-height` so the graphic filled the space without awkward cropping on either desktop or mobile. I also had to remove an initial dark overlay I had added, because it was blocking the custom graphic I had designed specifically for the banner.
+- **Page reload and scroll position on exit** — A problem I noticed was that when a visitor clicked Back to Portfolio from the contact form, they were always dropped back at the very top of the page regardless of where they came from. This was jarring when someone had scrolled down to the bottom banner and clicked the form link from there. I solved this by passing a `?ref=banner` query parameter on the banner button link. When `contactscript.js` loads it reads `URLSearchParams` and if the parameter is present it silently updates the back link href to point to `../index.html#contact-banner`, which scrolls the user back to exactly where they left off. If the form was opened from the top popup instead, no parameter is present so the back link returns to the top of the page as expected. This meant both entry points behave correctly with no extra clicks or visible difference for the user.
+
+---
+
+## Final Submission Checklist — Contact Form Assignment
+
+- `contact/contact.html` created with name, email, message fields and submit button
+- `contact/contactscript.js` created and linked correctly to `contact.html`
+- `contact/contact.css` created and linked correctly to `contact.html`
+- All contact files organised into a dedicated `contact/` subfolder
+- JavaScript prevents default form submission
+- Live `input` event validation on all three fields
+- Name validated as required and letters only
+- Email validated as required and correct format
+- Message validated as required and minimum 10 characters
+- Instant error messages displayed below each field while typing
+- Green outline applied to field on valid, red outline on invalid
+- Helper text next to labels disappears when field turns valid
+- Modal opens on successful submission showing name, email, and message
+- Modal closes via close button, backdrop click, and Escape key
+- Contact form linked from Contact Me popup button (returns to top)
+- Contact form linked from bottom banner button (returns to banner section)
+- `?ref=banner` query parameter used to control scroll-back destination
+- Desktop and mobile banner graphics implemented with CSS media query swap
+- Back to Portfolio link returns user to the correct position on exit
+- README updated to explain form behaviour, validation, modal, and all challenges faced
+
+---
+
+## Closing Note
+
+This assignment pushed me to think more carefully about user experience beyond just making things work. Decisions like where to place the form, how to handle navigation back, and how to give meaningful feedback while typing all required me to consider the visitor's journey rather than just the technical requirement. I feel more confident working with JavaScript validation, DOM manipulation, and multi-file project structure after completing this. I am looking forward to continuing to build on these skills in future modules.
 
 Kind Regards,
 Tom Black
-
----
-
 

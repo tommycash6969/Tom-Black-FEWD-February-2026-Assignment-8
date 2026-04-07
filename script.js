@@ -58,6 +58,21 @@ function showContactPopup() {
     <p style="color: #666; font-size: 0.9em; margin-bottom: 25px;">
       I'd love to hear about your project ideas and discuss how I can help!
     </p>
+    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+    <a id="open-contact-form-btn" href="contact/contact.html" style="
+      display: inline-block;
+      text-decoration: none;
+      background: linear-gradient(145deg, #ff9a82, #FF8066);
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 15px rgba(255, 128, 102, 0.3);
+    ">Open Contact Form</a>
     <button id="close-popup-btn" style="
       background: linear-gradient(145deg, #ff9a82, #FF8066);
       color: white;
@@ -70,6 +85,7 @@ function showContactPopup() {
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       box-shadow: 0 4px 15px rgba(255, 128, 102, 0.3);
     ">Close</button>
+    </div>
   `;
 
   // Append the modal to the backdrop
