@@ -10,49 +10,42 @@
   <title>Contact | FreeLivingDesigns</title>
 </head>
 <body>
-  <main class="contact-page" aria-labelledby="contact-heading">
-    <a class="back-link" id="back-link" href="../index.html">Back to Portfolio</a>
+  <!-- ASSIGNMENT 7: Vue Contact Form with Validation and Modal -->
+  <!-- Demonstrates: Vue components, v-model binding, v-if conditionals, responsive validation, modal interaction -->
+  
+  <div id="app">
+    <main class="contact-page" aria-labelledby="contact-heading">
+      <a class="back-link" id="back-link" href="../index.html">Back to Portfolio</a>
+      
+      <!-- COMPONENT 1: Contact Form (Reusable with Props) -->
+      <!-- Props: heading, introText, buttonLabel, placeholders, labels, helpers -->
+      <!-- Uses: v-model for name/email/message; @input/@blur for real-time validation; :disabled for submit button -->
+      <!-- Emits: form-submit event with validated { name, email, message } payload -->
+      <contact-form 
+        heading="Contact Form"
+        intro-text="Send me a message and I will get back to you soon."
+        button-label="Submit"
+        :placeholders="formPlaceholders"
+        :labels="formLabels"
+        :helpers="formHelpers"
+        @form-submit="handleFormSubmit">
+      </contact-form>
 
-    <section class="contact-card">
-      <h1 id="contact-heading">Contact Form</h1>
-      <p class="intro">Send me a message and I will get back to you soon.</p>
-
-      <form id="contact-form" novalidate>
-        <div class="form-group">
-          <label for="name">Name <span id="name-helper" class="field-helper">(used for naming purpose)</span></label>
-          <input id="name" name="name" type="text" autocomplete="name" required>
-          <p id="name-error" class="error-message" aria-live="polite"></p>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email <span id="email-helper" class="field-helper">(used for contact purpose)</span></label>
-          <input id="email" name="email" type="email" autocomplete="email" required>
-          <p id="email-error" class="error-message" aria-live="polite"></p>
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message <span id="message-helper" class="field-helper">(used for detailed response and feedback)</span></label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-          <p id="message-error" class="error-message" aria-live="polite"></p>
-        </div>
-
-        <button type="submit" class="submit-btn">Submit</button>
-      </form>
-    </section>
-  </main>
-
-  <div id="submission-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-heading">
-    <div class="modal-content">
-      <h2 id="modal-heading">Message Submitted</h2>
-      <div class="submitted-details">
-        <p><strong>Name:</strong> <span id="modal-name"></span></p>
-        <p><strong>Email:</strong> <span id="modal-email"></span></p>
-        <p><strong>Message:</strong> <span id="modal-message"></span></p>
-      </div>
-      <button type="button" id="close-modal" class="close-btn">Close</button>
-    </div>
+      <!-- COMPONENT 2: Submission Modal (Reusable) -->
+      <!-- Props: isOpen (controls v-if visibility), submittedData (displays name, email, message) -->
+      <!-- Features: Close via button, Escape key, or backdrop click -->
+      <!-- Emits: close event to parent app -->
+      <submission-modal 
+        v-bind:is-open="isModalOpen"
+        v-bind:submitted-data="submittedData"
+        @close="closeModal">
+      </submission-modal>
+    </main>
   </div>
 
+  <!-- Vue 3 Global Build from CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- Application entry point: validators, components, app state, event handlers -->
   <script src="contactscript.js"></script>
 </body>
 </html>
