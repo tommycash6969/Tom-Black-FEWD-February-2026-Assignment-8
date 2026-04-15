@@ -413,12 +413,11 @@ createApp({
       this.isModalOpen = false;
     },
 
-    // Set up referral logic: if form opened from banner, return to banner; else return to top
+    // Set up referral logic: always return to the Vue Router Contact route
     setupBackLink() {
       const backLink = document.getElementById('back-link');
-      const ref = new URLSearchParams(window.location.search).get('ref');
-      if (backLink && ref === 'banner') {
-        backLink.href = '../index.html#contact-banner';
+      if (backLink) {
+        backLink.href = '../router-assignment.html#/contact';
       }
     }
   },

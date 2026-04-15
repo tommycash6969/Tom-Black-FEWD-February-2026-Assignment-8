@@ -1,140 +1,56 @@
-# FreeLivingDesigns Portfolio
+## Final Assignment - Vue Router Multi-Page Navigation (April 2026)
 
-Tom Black - FEWD - February 2026 - Assignment 7
+This repository now includes a dedicated Vue Router assignment app that demonstrates route configuration, multi-page navigation, nested routing, dynamic routing, and a 404 fallback route.
 
-## Vue Contact Form Assignment (April 2026)
+### Files Added
 
-This assignment upgrades the contact page from vanilla JavaScript to Vue.js using reusable components, real-time validation, and a submission confirmation modal.
+- `router-assignment.html`: Entry point for the Vue Router app
+- `router-app.js`: Root Vue app shell with `router-link` navigation and `router-view`
+- `router/index.js`: Router configuration and route table
+- `router-app.css`: Route-specific styling
+- `pages/HomePage.js`
+- `pages/AboutPage.js`
+- `pages/AboutTeamPage.js`
+- `pages/AboutValuesPage.js`
+- `pages/ContactPage.js`
+- `pages/ProjectDetailPage.js`
+- `pages/NotFoundPage.js`
 
-## Implementation Overview
+### Route Architecture
 
-The Vue implementation lives in the contact folder and is split into three files:
+The router is configured in `router/index.js` using `createWebHashHistory()` so that the app works on static hosting without server-side route rewrite rules.
 
-- [contact/contact.html](contact/contact.html): Vue app mount point and component usage
-- [contact/contactscript.js](contact/contactscript.js): Vue components, validation logic, and app state
-- [contact/contact.css](contact/contact.css): Portfolio styling and responsive layout
+Implemented routes:
 
-## How The Vue Components Were Structured
+- `/` -> Home page
+- `/about` -> About page (parent route)
+- `/about/team` -> Nested child route
+- `/about/values` -> Nested child route
+- `/contact` -> Contact page
+- `/projects/:slug` -> Dynamic route (examples: `reskin`, `sunglide`, `blackstudio`)
+- `/:pathMatch(.*)*` -> 404 fallback page
 
-The page uses a parent-child component architecture.
+### Reflection On Routing Choices
 
-1. Root App
-- Created with `createApp(...)` and mounted to `#app`.
-- Stores shared state:
-	- `isModalOpen`
-	- `submittedData`
-	- `formPlaceholders`, `formLabels`, `formHelpers`
-- Handles form submission and modal closing.
+1. Hash history was chosen to ensure navigation works when opened from a simple local/static server.
+2. Nested routes were placed under `/about` to model real app structure where parent sections have subviews.
+3. Dynamic project route (`/projects/:slug`) demonstrates reusable page logic using route params instead of hardcoded pages.
+4. A fallback route was added to make unknown URLs graceful and user-friendly.
+5. Navigation is built with `router-link` so route changes happen without full page reloads.
 
-2. ContactForm Component
-- Reusable component responsible for input, validation display, and emitting submit data.
-- Uses `v-model` for:
-	- Name
-	- Email
-	- Message
-- Accepts props to customize content:
-	- `heading`
-	- `introText`
-	- `buttonLabel`
-	- `placeholders`
-	- `labels`
-	- `helpers`
-- Emits `submit` with cleaned input values.
+### How To Run
 
-3. SubmissionModal Component
-- Separate reusable modal that receives data via props:
-	- `isOpen`
-	- `submittedData`
-- Emits `close` to parent.
-- Supports close via button, Escape key, and backdrop click.
+1. Start a local server from the repository root.
+2. Open `router-assignment.html`.
+3. Use the top navigation and sub-navigation to verify route changes.
 
-## How Validation And Modal Interaction Work
+### Requirement Checklist
 
-Validation is centralized in a `validators` object inside [contact/contactscript.js](contact/contactscript.js).
-
-Rules:
-- Name: required, letters and spaces only
-- Email: required, valid email pattern
-- Message: required, minimum 10 characters
-
-Interaction flow:
-
-1. User types in a field
-- `v-model` updates form state.
-- `@input` triggers `validateField(...)` for real-time checks.
-
-2. User leaves a field
-- `@blur` marks the field as touched.
-- Error message appears only when touched and invalid using `v-if`.
-
-3. Submit button state
-- Button is bound with `:disabled="!isFormValid()"`.
-- Form cannot be submitted until all fields are valid.
-
-4. Successful submit
-- ContactForm emits `submit` event with trimmed values.
-- Parent updates `submittedData` and opens modal.
-
-5. Modal closing
-- Close button emits `close`.
-- Escape key emits `close`.
-- Clicking outside modal content emits `close`.
-
-## Testing Notes
-
-Testing was done manually in browser across core scenarios:
-
-1. Validation behavior
-- Verified empty, invalid, and valid states for all fields.
-- Confirmed live feedback updates while typing.
-
-2. Button behavior
-- Confirmed submit button remains disabled until form is fully valid.
-
-3. Modal behavior
-- Confirmed modal displays submitted name, email, and message.
-- Confirmed all close methods work (button, Escape, backdrop).
-
-4. Responsiveness
-- Checked mobile and desktop layouts.
-- Confirmed form fields, spacing, and modal remain usable across viewport sizes.
-
-5. Basic accessibility
-- Confirmed labels are associated to inputs.
-- Confirmed `aria-invalid` and `aria-live` are used for feedback semantics.
-
-## Challenges Faced And How They Were Resolved
-
-1. Converting from DOM-driven logic to component state
-- Challenge: Existing flow depended on direct element queries and class toggling.
-- Resolution: Moved all field and validation status into reactive `formData` and `formState` objects and rendered UI states declaratively.
-
-2. Preventing premature error messages
-- Challenge: Real-time validation can feel noisy if errors show before interaction.
-- Resolution: Added a `touched` flag per field and showed errors only when `touched && !isValid`.
-
-3. Enforcing valid-only submission clearly
-- Challenge: Users needed immediate visual cue about submit readiness.
-- Resolution: Bound the submit button disabled state to form validity and added disabled styling in [contact/contact.css](contact/contact.css).
-
-4. Keeping modal behavior robust
-- Challenge: Ensure modal closes consistently through multiple interactions.
-- Resolution: Centralized close events via emitted `close` event and added Escape/backdrop listeners with cleanup in lifecycle hooks.
-
-5. Making the form reusable
-- Challenge: Hardcoded labels/placeholders reduce reuse.
-- Resolution: Added props-based customization for text and button labels, passed from root app in [contact/contact.html](contact/contact.html).
-
-6. Submitted message data showing blank in modal
-- Challenge: After clicking submit, the modal opened but Name, Email, and Message were blank in the browser.
-- Root cause: The parent listener used `@submit` on the component, which conflicted with native form submit behavior and could pass a browser event instead of the form payload object.
-- Resolution: Renamed the custom emitted event to `form-submit`, updated the parent listener to `@form-submit`, and added a defensive payload guard in the submit handler so only valid objects are accepted.
-
-## Final Outcome
-
-The contact page now uses Vue.js components with dynamic validation feedback, controlled submission, reusable prop-driven configuration, and a modal confirmation flow that matches the existing portfolio look and feel.
-
-I hope you enjoy the code and am thrilled to be at the final stages of the course.
-Warm Regards
-Tom Black
+- Vue Router configured in `router/index.js`.
+- At least three distinct pages implemented.
+- Navigation links implemented with `router-link`.
+- Route changes clearly visible with page-specific content/styling.
+- Nested route included (`/about/team`, `/about/values`).
+- Dynamic route included (`/projects/:slug`).
+- Fallback 404 route included (`/:pathMatch(.*)*`).
 
