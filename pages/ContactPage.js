@@ -1,13 +1,22 @@
 export default {
   template: `
     <section class="route-card contact-theme">
-      <p class="route-chip">Contact</p>
-      <h2>Let's Build Something That Not Only Works, But Performs</h2>
-      <p>If you are ready for a modern website that reflects your brand and drives results, I would love to hear about your project and goals and get on board.</p>
-      <p class="contact-note">Before commitment, check out our process.</p>
+      <div class="contact-hero-shell">
+        <div class="home-hero-overlay"></div>
+        <p class="route-chip">Contact</p>
+        <div class="home-hero-copy">
+          <p class="home-kicker">To Start Us Off</p>
+          <h2>Let's Build Something That Not Only Works, But Performs</h2>
+          <p class="home-lead">If you are ready for a modern website that reflects your brand and drives results, I would love to hear about your project and goals and get on board.</p>
+          <div class="home-cta-row">
+            <a class="jump-link contact-open-btn" href="./contact/contact.html" @click.prevent="openContactForm">Open Contact form</a>
+          </div>
+          <p class="home-kicker" style="margin-top:16px;">Before commitment, check out our process below.</p>
+        </div>
+      </div>
 
       <article class="content-box">
-        <h3>What To Expect</h3>
+        <h3 style="text-align:center;">What To Expect</h3>
         <ul>
           <li>Typical response time: within 24 business hours.</li>
           <li>Project types: portfolio sites, service websites, WooCommerce builds.</li>
@@ -15,16 +24,10 @@ export default {
         </ul>
       </article>
 
-      <div class="project-links">
-        <a class="jump-link" href="./contact/contact.html" @click.prevent="openContactForm">Open Contact form</a>
-      </div>
-
       <article class="content-box contact-cta-box">
-        <h3>Step 1</h3>
-        <p>Start your project today!</p>
+        <p>Get in contact with me to discuss your ideas, projects and my ability to help you build your dream web application.</p>
         <p><strong>Tom Black:</strong> <a href="tel:+27842079325">+27842079325</a></p>
-        <p><strong>Email:</strong> <a href="mailto:freelivingdesigns@gmail.com">freelivingdesigns@gmail.com</a></p>
-        <img class="route-image" src="images/contact-banner-desktop.jpg" alt="Contact banner visual" />
+        <p class="email-line"><strong>Email:</strong> <a class="email-link" href="mailto:freelivingdesigns@gmail.com">freelivingdesigns@gmail.com</a></p>
       </article>
     </section>
   `,

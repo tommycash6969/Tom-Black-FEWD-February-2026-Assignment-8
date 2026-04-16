@@ -49,7 +49,7 @@ export default {
   template: `
     <section class="route-card project-theme">
       <p class="route-chip">Project View</p>
-      <h2>Project Detail</h2>
+      <h2>Project Details</h2>
 
       <div class="project-links">
         <router-link to="/projects/reskin" class="sub-link">Reskin</router-link>

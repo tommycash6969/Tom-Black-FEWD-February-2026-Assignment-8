@@ -35,15 +35,17 @@ const AppRoot = {
   template: `
     <div class="router-app-shell">
       <header class="app-header">
-        <p class="eyebrow">Final Assignment</p>
-        <h1>Vue Router Multi-Page Demo</h1>
-        <p class="subtitle">Routing with dynamic, nested, and fallback routes.</p>
+        <p class="eyebrow">End to End: Front End</p>
+        <img class="header-logo" src="images/freelivinglogo.png" alt="FreeLiving Designs logo">
+        <h1 id="site-brand-heading">FreeLivingDesigns</h1>
+        <p class="subtitle">Clean, responsive, and purpose-built front-end experiences.</p>
       </header>
 
       <nav class="top-nav" aria-label="Assignment navigation">
         <router-link to="/" class="nav-link">Home</router-link>
         <router-link to="/about" class="nav-link">About</router-link>
         <router-link to="/contact" class="nav-link">Contact</router-link>
+        <router-link to="/faq" class="nav-link">FAQ</router-link>
         <router-link
           to="/projects/reskin"
           class="nav-link"

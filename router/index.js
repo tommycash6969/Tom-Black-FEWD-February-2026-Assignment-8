@@ -4,6 +4,7 @@ import AboutPage from '../pages/AboutPage.js';
 import AboutTeamPage from '../pages/AboutTeamPage.js';
 import AboutValuesPage from '../pages/AboutValuesPage.js';
 import ContactPage from '../pages/ContactPage.js';
+import FaqPage from '../pages/FaqPage.js';
 import ProjectDetailPage from '../pages/ProjectDetailPage.js';
 import NotFoundPage from '../pages/NotFoundPage.js';
 
@@ -40,6 +41,11 @@ const routes = [
     component: ContactPage
   },
   {
+    path: '/faq',
+    name: 'faq',
+    component: FaqPage
+  },
+  {
     path: '/projects/:slug',
     name: 'project-detail',
     component: ProjectDetailPage,
@@ -60,11 +66,7 @@ const router = createRouter({
       return savedPosition;
     }
 
-    if (to.path.startsWith('/projects/') && from.path.startsWith('/projects/')) {
-      return false;
-    }
-
-    return { top: 0 };
+    return false;
   }
 });
 
