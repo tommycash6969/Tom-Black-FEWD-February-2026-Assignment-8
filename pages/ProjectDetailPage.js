@@ -48,13 +48,18 @@ export default {
   },
   template: `
     <section class="route-card project-theme">
-      <p class="route-chip">Project View</p>
-      <h2>Project Details</h2>
+      <div class="project-hero-shell">
+        <div class="home-hero-overlay"></div>
+        <p class="route-chip">Project View</p>
+        <div class="home-hero-copy">
+          <h2>Project Details</h2>
 
-      <div class="project-links">
-        <router-link to="/projects/reskin" class="sub-link">Reskin</router-link>
-        <router-link to="/projects/sunglide" class="sub-link">Sunglide</router-link>
-        <router-link to="/projects/blackstudio" class="sub-link">BlackStudio</router-link>
+          <div class="project-links">
+            <router-link to="/projects/reskin" class="sub-link">Reskin</router-link>
+            <router-link to="/projects/sunglide" class="sub-link">Sunglide</router-link>
+            <router-link to="/projects/blackstudio" class="sub-link">BlackStudio</router-link>
+          </div>
+        </div>
       </div>
 
       <div v-if="selectedProject">

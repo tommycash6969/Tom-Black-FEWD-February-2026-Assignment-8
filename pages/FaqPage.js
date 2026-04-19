@@ -1,10 +1,15 @@
 export default {
 	template: `
 		<section class="route-card faq-theme">
-			<p class="route-chip">FAQ</p>
-			<img class="faq-hero-image" src="images/FAQ.png" alt="FAQ heading graphic" />
-			<h2>Frequently Asked Questions</h2>
-			<p class="faq-intro">Quick answers about process, timelines, platform setup, and post-launch support.</p>
+			<div class="faq-hero-shell">
+				<div class="home-hero-overlay"></div>
+				<p class="route-chip">FAQ</p>
+				<div class="home-hero-copy">
+					<img class="faq-hero-image" src="images/FAQ.png" alt="FAQ icon" />
+					<h2>Frequently Asked Questions</h2>
+					<p class="faq-intro">Quick answers about process, timelines, platform setup, and post-launch support.</p>
+				</div>
+			</div>
 
 			<div class="faq-box-router">
 				<div class="faq-accordion-list">
