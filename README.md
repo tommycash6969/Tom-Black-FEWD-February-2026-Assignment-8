@@ -1,5 +1,6 @@
 ## Final Assignment - Vue Router Multi-Page Navigation
 Tom Black - FEWD - February - Assignment 8
+
 This project contains a dedicated Vue Router application built for the final assignment. The app demonstrates multi-page navigation inside a Vue single-page application, including nested routes, a dynamic route, styled navigation states, and a 404 fallback view.
 
 ### How Vue Router Was Implemented
@@ -88,3 +89,7 @@ The project was checked to ensure the router loads correctly, route components a
 - Dynamic route included at `/projects/:slug`
 - Fallback 404 route included
 
+Thank you for taking the time to mark my project,
+I hope this fits the standards.
+Regards
+Tom Black
