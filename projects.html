@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Tom Black Design — real-world website builds including Reskin Aesthetics, Sunglide B2B Store, and BlackStudio Paarl.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <title>Projects — Tom Black Design</title>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ========== SITE HEADER ========== -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-logo-link" aria-label="Tom Black Design — Home">
+        <img src="images/Free living design logo.png" alt="FreeLivingDesigns logo">
+        <span class="logo-text">Tom Black Design<span>Front-End Developer</span></span>
+      </a>
+      <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="index.html"    class="nav-link">Home</a>
+        <a href="about.html"    class="nav-link">About</a>
+        <a href="projects.html" class="nav-link is-active">Projects</a>
+        <a href="faq.html"      class="nav-link">FAQ</a>
+        <a href="contact.html"  class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="main-content" class="page-wrapper">
+
+    <!-- Hero -->
+    <section class="hero-shell hero-shell--projects" aria-label="Projects hero banner">
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <span class="page-chip" aria-hidden="true">Projects</span>
+        <span class="hero-kicker">Previous Works</span>
+        <h1>Projects That Perform</h1>
+        <p>A selection of real-world website builds — each shaped around a specific business goal, audience, and outcome.</p>
+      </div>
+    </section>
+
+    <!-- Project cards -->
+    <section class="content-card" aria-labelledby="projects-heading" data-reveal>
+      <div class="section-heading" style="margin-bottom:20px;">
+        <span class="section-kicker">Portfolio</span>
+        <h2 id="projects-heading">Selected Works</h2>
+        <p>Click a project card to view the full brief, stack, and outcome.</p>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- Project 1: Reskin -->
+        <article
+          class="project-card"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="detail-reskin"
+          data-project="reskin"
+        >
+          <img
+            class="project-card-img"
+            src="images/reskin-cover.png"
+            alt="Reskin Aesthetics website screenshot"
+            loading="lazy"
+          >
+          <div class="project-card-body">
+            <span class="project-card-tag">WordPress</span>
+            <h3>Reskin Aesthetics Website</h3>
+            <p>A premium service-led website focused on trust, treatment visibility, and bookings.</p>
+            <p class="project-card-stack"><strong>Stack:</strong> WordPress, Custom Theme Styling, UX Content Structure, Local SEO</p>
+          </div>
+        </article>
+
+        <!-- Project 2: Sunglide -->
+        <article
+          class="project-card"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="detail-sunglide"
+          data-project="sunglide"
+        >
+          <img
+            class="project-card-img"
+            src="images/sunglide-cover.png"
+            alt="Sunglide B2B store screenshot"
+            loading="lazy"
+          >
+          <div class="project-card-body">
+            <span class="project-card-tag">WooCommerce</span>
+            <h3>Sunglide Online B2B Store</h3>
+            <p>A WooCommerce storefront built for wholesale clients with tiered pricing logic.</p>
+            <p class="project-card-stack"><strong>Stack:</strong> WordPress, WooCommerce, Product Variations, Tiered Pricing Rules</p>
+          </div>
+        </article>
+
+        <!-- Project 3: BlackStudio -->
+        <article
+          class="project-card"
+          role="button"
+          tabindex="0"
+          aria-expanded="false"
+          aria-controls="detail-blackstudio"
+          data-project="blackstudio"
+        >
+          <img
+            class="project-card-img"
+            src="images/Blackstudiopaarl-cover.png"
+            alt="BlackStudio Paarl print-on-demand store screenshot"
+            loading="lazy"
+          >
+          <div class="project-card-body">
+            <span class="project-card-tag">WordPress</span>
+            <h3>BlackStudio Paarl Print-on-Demand Catalogue</h3>
+            <p>A WordPress product pricing catalogue focused on print-on-demand merchandise and clear customer selection paths.</p>
+            <p class="project-card-stack"><strong>Stack:</strong> WordPress, Product Pricing Catalogue, Print-on-Demand Content Structuring, Responsive Layout</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Project Detail: Reskin -->
+    <section
+      id="detail-reskin"
+      class="project-detail"
+      aria-labelledby="detail-reskin-heading"
+      aria-live="polite"
+    >
+      <h2 id="detail-reskin-heading">Reskin Aesthetics Website</h2>
+      <img
+        class="project-detail-img"
+        src="images/reskin-cover.png"
+        alt="Reskin Aesthetics website screenshot"
+      >
+
+      <dl>
+        <dt>Client</dt>
+        <dd>Reskin Aesthetics — a skin and beauty clinic based in the Western Cape, South Africa.</dd>
+
+        <dt>Brief</dt>
+        <dd>The client needed a premium, trust-focused website that could showcase their treatment menu, build credibility with new patients, and drive enquiry bookings. The existing site was outdated, hard to navigate, and did not reflect the quality of the treatments on offer.</dd>
+
+        <dt>Stack</dt>
+        <dd>WordPress, Elementor Builder, Custom Theme Styling, UX Content Architecture, Local SEO</dd>
+
+        <dt>What Was Delivered</dt>
+        <dd>
+          <ul style="margin-top:6px; padding-left:18px; line-height:1.8;">
+            <li>Full site redesign with a clean, premium visual identity</li>
+            <li>Structured treatment pages with clear service descriptions and pricing tiers</li>
+            <li>Mobile-first responsive layout optimised for smartphone browsing</li>
+            <li>Contact and booking call-to-action placement on every key page</li>
+            <li>Local SEO basics — meta titles, descriptions, and Google Business alignment</li>
+          </ul>
+        </dd>
+
+        <dt>Challenge</dt>
+        <dd>The previous layout felt cluttered and inconsistent. Users had to hunt for treatment details, and there was no clear path from discovery to enquiry. The brand lacked visual cohesion across pages.</dd>
+
+        <dt>Solution</dt>
+        <dd>Rebuilt the full information architecture around treatment intent — grouping services logically, adding visual hierarchy to guide the eye, and placing booking prompts at natural decision points. A consistent colour and typography system was applied across all pages.</dd>
+
+        <dt>Outcome</dt>
+        <dd>Measurably cleaner user journey from landing to enquiry. The client reported an increase in direct booking requests within the first month of launch. Staff also noted fewer phone calls asking basic questions — a sign that the site was doing its job.</dd>
+
+        <dt>What I Learned</dt>
+        <dd>Healthcare-adjacent clients need trust signals built into the design — credentials, before/after results (where appropriate), and clear contact options. Clarity is the product.</dd>
+      </dl>
+
+      <button class="detail-close" type="button" aria-label="Close project detail">&#10005; Close</button>
+    </section>
+
+    <!-- Project Detail: Sunglide -->
+    <section
+      id="detail-sunglide"
+      class="project-detail"
+      aria-labelledby="detail-sunglide-heading"
+      aria-live="polite"
+    >
+      <h2 id="detail-sunglide-heading">Sunglide Online B2B Store</h2>
+      <img
+        class="project-detail-img"
+        src="images/sunglide-cover.png"
+        alt="Sunglide B2B store screenshot"
+      >
+
+      <dl>
+        <dt>Client</dt>
+        <dd>Sunglide — a wholesale distribution company supplying window and door hardware to trade customers across South Africa.</dd>
+
+        <dt>Brief</dt>
+        <dd>Sunglide needed a B2B-focused WooCommerce store that could handle multiple customer types — retail, trade, and wholesale — each with different pricing structures. The goal was to reduce manual quoting and let trade clients order directly online without exposing retail pricing to wholesale accounts.</dd>
+
+        <dt>Stack</dt>
+        <dd>WordPress, WooCommerce, Product Variations, Tiered Pricing Rules, User Role Management</dd>
+
+        <dt>What Was Delivered</dt>
+        <dd>
+          <ul style="margin-top:6px; padding-left:18px; line-height:1.8;">
+            <li>Role-based pricing system — different price tiers visible per account type</li>
+            <li>Clean product catalogue with variation-based stock management</li>
+            <li>Streamlined checkout flow tailored to B2B order quantities</li>
+            <li>Trade account application form and manual approval workflow</li>
+            <li>Mobile-responsive layout that works in warehouse and on-the-go contexts</li>
+          </ul>
+        </dd>
+
+        <dt>Challenge</dt>
+        <dd>Standard WooCommerce does not natively support tiered B2B pricing in an intuitive way. Displaying the right price to the right user without breaking the shopping experience — or revealing sensitive wholesale rates to retail browsers — required careful architecture decisions.</dd>
+
+        <dt>Solution</dt>
+        <dd>Implemented structured user roles tied to account registration, with conditional pricing rules applied per role. Product visibility rules ensured wholesale-only lines were not browsable by unregistered users. The checkout flow was simplified to reduce friction for repeat trade orders.</dd>
+
+        <dt>Outcome</dt>
+        <dd>Reduced the volume of manual quote requests by giving trade customers self-serve ordering capability. The client was able to onboard new wholesale accounts faster and with less administrative overhead.</dd>
+
+        <dt>What I Learned</dt>
+        <dd>B2B e-commerce requires thinking beyond the cart. Account management, pricing logic, and trust at the wholesale level are just as important as the front-end presentation. Understanding the client's internal processes was essential before writing a single line of code.</dd>
+      </dl>
+
+      <button class="detail-close" type="button" aria-label="Close project detail">&#10005; Close</button>
+    </section>
+
+    <!-- Project Detail: BlackStudio -->
+    <section
+      id="detail-blackstudio"
+      class="project-detail"
+      aria-labelledby="detail-blackstudio-heading"
+      aria-live="polite"
+    >
+      <h2 id="detail-blackstudio-heading">BlackStudio Paarl Print-on-Demand Catalogue</h2>
+      <img
+        class="project-detail-img"
+        src="images/Blackstudiopaarl-cover.png"
+        alt="BlackStudio Paarl print-on-demand store screenshot"
+      >
+
+      <dl>
+        <dt>Client</dt>
+        <dd>BlackStudio Paarl — a creative brand in the Winelands offering custom printed merchandise through a print-on-demand service model.</dd>
+
+        <dt>Brief</dt>
+        <dd>BlackStudio needed a WordPress-based product pricing catalogue where customers could browse print-on-demand items, compare options quickly, and submit informed enquiries with clear expectations on pricing and fulfilment windows.</dd>
+
+        <dt>Stack</dt>
+        <dd>WordPress, Product Pricing Catalogue Architecture, Print-on-Demand Workflow Content, Responsive Layout, Content Structuring</dd>
+
+        <dt>What Was Delivered</dt>
+        <dd>
+          <ul style="margin-top:6px; padding-left:18px; line-height:1.8;">
+            <li>Product-first catalogue with clear categories for apparel and branded items</li>
+            <li>Pricing-focused layout to support quick comparison and faster decision-making</li>
+            <li>Structured product pages with size, colour, print option, and pricing clarity</li>
+            <li>Messaging around production windows and delivery expectations</li>
+            <li>Brand-consistent visual system to keep the shop identity strong and recognisable</li>
+          </ul>
+        </dd>
+
+        <dt>Challenge</dt>
+        <dd>Print-on-demand introduces customer uncertainty around lead times, product variations, and final print output. The site needed to build trust while keeping order steps simple and clear.</dd>
+
+        <dt>Solution</dt>
+        <dd>Reworked the information architecture around product discovery and pricing clarity. Product cards were structured for quick scanning, variation options were clarified at product level, and fulfilment messaging was placed at key decision points so customers understood exactly how the print-on-demand process worked before making contact.</dd>
+
+        <dt>Outcome</dt>
+        <dd>The business gained a clearer product and pricing reference point for custom merchandise, reducing manual back-and-forth before enquiries. Customers were able to browse options and pricing more confidently, which improved lead quality and reduced repetitive support questions.</dd>
+
+        <dt>What I Learned</dt>
+        <dd>For print-on-demand businesses, clarity around expectations is as important as visual design. When customers understand options, timing, and fulfilment upfront, trust and conversion improve naturally.</dd>
+      </dl>
+
+      <button class="detail-close" type="button" aria-label="Close project detail">&#10005; Close</button>
+    </section>
+
+    <!-- CTA -->
+    <section class="content-card" style="text-align:center;" data-reveal>
+      <h2 style="font-family:'Oswald',sans-serif; margin-bottom:10px;">Have a project in mind?</h2>
+      <p style="max-width:500px; margin:0 auto 18px; color:#374151;">Every successful site starts with a conversation. Let's talk about what you need.</p>
+      <a class="btn btn--green" href="contact.html">Start a Conversation</a>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-col">
+        <a href="index.html" class="site-logo-link" style="margin-bottom:10px;" aria-label="Tom Black Design — Home">
+          <img src="images/Free living design logo.png" alt="FreeLivingDesigns logo">
+          <span class="logo-text">Tom Black Design<span>Front-End Developer</span></span>
+        </a>
+        <p style="font-size:0.88rem; line-height:1.5;">Front-end web development focused on performance, clarity, and design that drives results.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+27842079325">+27 84 207 9325</a></li>
+          <li><a href="mailto:freelivingdesigns@gmail.com">freelivingdesigns@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tom Black Design. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tom Black Design — Front-end web design with movement, clarity, and intent. Modern, high-performing websites built to engage your audience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <title>Tom Black Design — Web Developer &amp; Front-End Designer</title>
+</head>
+<body>
+
+  <!-- Skip to main content (accessibility) -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ========== SITE HEADER ========== -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-logo-link" aria-label="Tom Black Design — Home">
+        <img src="images/Free living design logo.png" alt="FreeLivingDesigns logo">
+        <span class="logo-text">Tom Black Design<span>Front-End Developer</span></span>
+      </a>
+      <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">&#9776;</button>
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="index.html"   class="nav-link is-active">Home</a>
+        <a href="about.html"   class="nav-link">About</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="faq.html"     class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main id="main-content" class="page-wrapper">
+
+    <!-- Hero -->
+    <section class="hero-shell hero-shell--home" aria-label="Hero banner">
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <span class="page-chip" aria-hidden="true">Home</span>
+        <span class="hero-kicker">Front-end design with movement, clarity, and intent</span>
+        <h1>Built to feel alive,<br>not just look finished.</h1>
+        <p>From concept to launch, I create modern, high-performing websites built to engage your audience and drive real results.</p>
+        <div class="cta-row">
+          <a class="btn" href="about.html">Explore About</a>
+          <a class="btn" href="projects.html">Previous Works</a>
+          <a class="btn btn--green" href="contact.html">Start a Conversation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro: photo + bio -->
+    <section class="content-card" aria-labelledby="intro-heading" data-reveal>
+      <div class="intro-layout">
+        <div class="photo-frame">
+          <img src="images/tommy 2.png" alt="Tom Black, front-end web developer, headshot">
+        </div>
+        <div class="intro-card">
+          <h2 id="intro-heading">The designer behind the build</h2>
+          <p>Hi, I am Tom Black — a front-end web developer focused on building modern, responsive websites. With years of WordPress experience and a strong eye for clean presentation, I enjoy turning structured HTML, purposeful CSS, and practical JavaScript into digital experiences that feel easy to use and strong in delivery.</p>
+          <div class="intro-points" role="list" aria-label="Specialities">
+            <span role="listitem">Responsive layouts</span>
+            <span role="listitem">Clean code systems</span>
+            <span role="listitem">Brand-led design</span>
+            <span role="listitem">Conversion-minded UX</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Spotlight -->
+    <section class="spotlight-box" aria-labelledby="spotlight-heading" data-reveal>
+      <div class="section-heading">
+        <span class="section-kicker">Interactive Spotlight</span>
+        <h2 id="spotlight-heading">Choose the journey</h2>
+        <p>Tap through the stages below to see how I shape a project from first structure to final launch.</p>
+      </div>
+
+      <div class="toggle-row" role="tablist" aria-label="Project journey stages">
+        <button
+          class="toggle-btn"
+          type="button"
+          role="tab"
+          data-target="panel-build"
+          aria-pressed="true"
+          aria-controls="panel-build"
+        >Build</button>
+        <button
+          class="toggle-btn"
+          type="button"
+          role="tab"
+          data-target="panel-polish"
+          aria-pressed="false"
+          aria-controls="panel-polish"
+        >Polish</button>
+        <button
+          class="toggle-btn"
+          type="button"
+          role="tab"
+          data-target="panel-launch"
+          aria-pressed="false"
+          aria-controls="panel-launch"
+        >Launch</button>
+      </div>
+
+      <!-- Panel: Build -->
+      <div id="panel-build" class="journey-panel is-visible" role="tabpanel" aria-labelledby="btn-build">
+        <span class="panel-chip">Build Mode</span>
+        <h4>Structured front-end foundations</h4>
+        <p>I start with clear layout systems, semantic structure, and responsive decisions that keep the site flexible from the first section to the last.</p>
+        <ul>
+          <li>Mobile-first planning with clean content flow</li>
+          <li>Readable component structure and practical CSS systems</li>
+          <li>Interactions that support the message instead of distracting from it</li>
+        </ul>
+      </div>
+
+      <!-- Panel: Polish -->
+      <div id="panel-polish" class="journey-panel" role="tabpanel" aria-labelledby="btn-polish">
+        <span class="panel-chip">Polish Pass</span>
+        <h4>Visual rhythm with personality</h4>
+        <p>Once the structure is strong, I shape the experience with motion, hierarchy, and detail so the page feels intentional, modern, and memorable.</p>
+        <ul>
+          <li>Typography and spacing tuned for clarity</li>
+          <li>Motion used to guide attention and add energy</li>
+          <li>Brand cues worked into the interface without clutter</li>
+        </ul>
+      </div>
+
+      <!-- Panel: Launch -->
+      <div id="panel-launch" class="journey-panel" role="tabpanel" aria-labelledby="btn-launch">
+        <span class="panel-chip">Launch Ready</span>
+        <h4>Reliable delivery with business focus</h4>
+        <p>The final layer is about confidence: fast-loading pages, user-friendly experiences, and practical decisions that support trust and conversion.</p>
+        <ul>
+          <li>Performance-minded assets and page flow</li>
+          <li>Clear calls to action that support user intent</li>
+          <li>Dependable delivery shaped around real business goals</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Feature cards -->
+    <section class="content-card" aria-labelledby="services-heading" data-reveal>
+      <div class="section-heading" style="margin-bottom:18px;">
+        <span class="section-kicker">What I Deliver</span>
+        <h2 id="services-heading">Core services</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Design &amp; Layout</h3>
+          <p>Modern, brand-led designs with strong visual hierarchy. Every layout is planned to guide the user naturally through your content and toward action.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Clean Development</h3>
+          <p>Semantic HTML, scalable CSS, and practical JavaScript — written to be maintainable, performant, and easy to hand over or extend later.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Responsive &amp; Accessible</h3>
+          <p>Fully responsive across all screen sizes and built with accessibility in mind — so every user can engage with your site confidently.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="content-card" style="text-align:center;" data-reveal>
+      <h2 style="font-family:'Oswald',sans-serif; margin-bottom:10px;">Ready to start something?</h2>
+      <p style="max-width:520px; margin:0 auto 18px;">If you have a project in mind, I would love to hear about it. Let's discuss your goals and build something worth being proud of.</p>
+      <a class="btn btn--green" href="contact.html">Get in touch</a>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-col">
+        <a href="index.html" class="site-logo-link" style="margin-bottom:10px;" aria-label="Tom Black Design — Home">
+          <img src="images/Free living design logo.png" alt="FreeLivingDesigns logo">
+          <span class="logo-text">Tom Black Design<span>Front-End Developer</span></span>
+        </a>
+        <p style="font-size:0.88rem; line-height:1.5;">Front-end web development focused on performance, clarity, and design that drives results.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+27842079325">+27 84 207 9325</a></li>
+          <li><a href="mailto:freelivingdesigns@gmail.com">freelivingdesigns@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tom Black Design. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

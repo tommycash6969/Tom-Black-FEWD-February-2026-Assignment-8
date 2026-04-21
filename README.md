@@ -1,23 +1,99 @@
-## Final Assignment - Vue Router Multi-Page Navigation
-Tom Black - FEWD - February - Assignment 8
+# Tom Black Design — Portfolio Website
 
-This project contains a dedicated Vue Router application built for the final assignment. The app demonstrates multi-page navigation inside a Vue single-page application, including nested routes, a dynamic route, styled navigation states, and a 404 fallback view.
+## Theme & Purpose
 
-### How Vue Router Was Implemented
+**Professional/Business Portfolio** — a client-facing portfolio site for Tom Black Design (FreeLivingDesigns), a front-end web development business. The site is designed to attract potential clients by showcasing skills, previous projects, and providing a clear path to get in touch.
 
-Vue Router is configured in `router/index.js` using `createRouter()` and `createWebHashHistory()`. Hash history was the best fit for this assignment because the project is served from a simple static server and does not rely on server-side route rewrites.
+---
 
-The main application shell lives in `router-app.js`. It mounts the router, renders the shared header and navigation, and uses `router-link` for route changes and `router-view` for displaying the active page component.
+## Site Structure
 
-### Pages and Structure
+```
+index.html          — Home: hero, intro, interactive journey spotlight, services
+about.html          — About: who I am, skills accordions, values grid
+projects.html       — Projects: clickable project cards with detail panels
+faq.html            — FAQ: accordion questions about process & services
+contact.html        — Contact: contact details + validated enquiry form
+style.css           — Shared stylesheet for all pages
+main.js             — Shared JavaScript (nav toggle, journey toggle, project details, form, scroll reveal)
+images/             — All site imagery (logos, project screenshots, hero photos)
+README.md           — This file
+```
 
-The app includes the following page components:
+---
 
-- `pages/HomePage.js`
-- `pages/AboutPage.js`
-- `pages/AboutTeamPage.js`
-- `pages/AboutValuesPage.js`
-- `pages/ContactPage.js`
+## JavaScript Features
+
+The following interactive features are implemented in `main.js`:
+
+1. **Mobile navigation toggle** — hamburger button shows/hides the nav on small screens, with `aria-expanded` state managed for accessibility.
+2. **Journey spotlight toggle** (Home page) — three toggle buttons swap between Build / Polish / Launch panels using `aria-pressed` states.
+3. **Project card detail expansion** (Projects page) — clicking a project card reveals a full detail panel below with summary, stack, outcome, challenge, and solution. Keyboard (Enter / Space) also works; a close button returns focus to the grid.
+4. **Contact form validation & submit handler** — client-side validation checks required fields and email format before showing a success or error message. No page reload.
+5. **Scroll reveal animation** — `IntersectionObserver` watches `[data-reveal]` elements and applies a fade-up transition when they enter the viewport. Falls back gracefully if the API is unavailable.
+
+---
+
+## Accessibility & Semantic HTML
+
+- All pages use semantic landmarks: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`.
+- Headings follow a logical hierarchy (`h1` → `h2` → `h3` / `h4`) on every page.
+- A **skip-to-main-content** link is the first focusable element on every page.
+- All images have meaningful `alt` text; decorative images use `alt=""`.
+- Navigation uses `aria-label="Main navigation"` and the active page is marked with `.is-active`.
+- Interactive elements (project cards acting as buttons) have `role="button"`, `tabindex="0"`, and `aria-expanded`.
+- `<details>` / `<summary>` elements are used natively for FAQ and skill accordions — no JS required for core behaviour.
+- Form inputs have associated `<label>` elements, `autocomplete` attributes, and `aria-required`.
+- Colour contrast targets WCAG AA for body text and interactive elements.
+- The layout is fully responsive across mobile (≤540 px), tablet (≤760 px), and desktop.
+
+---
+
+## Challenges & Solutions
+
+| Challenge | Solution |
+|---|---|
+| Converting a Vue SPA to a multi-page site | Extracted content from each Vue component template and rewrote it as static HTML. Router links became standard `<a>` href links. |
+| Keeping the interactive journey spotlight without Vue reactivity | Replaced `v-for` / `v-if` / `:class` with vanilla JS button listeners that toggle `aria-pressed` and `is-visible` classes. |
+| Making project detail panels keyboard-accessible | Added `role="button"`, `tabindex="0"`, and `keydown` listeners (Enter / Space) to project cards, plus a close button that returns focus. |
+| Image filenames with spaces in CSS `url()` | URL-encoded spaces in CSS background-image values (e.g. `about%20us%20image.jpg`) while keeping normal `src` paths in `<img>` tags. |
+| Scroll reveal without a library | Used the native `IntersectionObserver` API with a graceful fallback for unsupported browsers. |
+
+---
+
+## How to View Locally
+
+A local HTTP server is required because browsers block some resources when opening HTML files directly via `file://`. A PowerShell script is included:
+
+```powershell
+.\start-server.ps1
+```
+
+Then open `http://localhost:3000` in your browser.
+
+---
+
+## Live Site & Repository
+
+- **Live site:** *(GitHub Pages URL — add after deploying)*
+- **GitHub repository:** *(Repository URL — add after pushing)*
+
+---
+
+## Credits
+
+- Fonts: [Google Fonts](https://fonts.google.com/) — Oswald & Open Sans
+- All project content, photography, and branding belong to Tom Black / FreeLivingDesigns
+- Built as the Summative Showcase for the Red & Yellow FEWD programme, February 2026 intake
+
+---
+
+## Previous Assignment Reference
+
+The Vue Router multi-page SPA (Assignment 8) lives in the following files and remains unchanged:
+
+- `router-assignment.html` / `router-app.js` / `router-app.css`
+- `router/index.js` and all `pages/*.js` components
 - `pages/FaqPage.js`
 - `pages/ProjectDetailPage.js`
 - `pages/NotFoundPage.js`
