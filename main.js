@@ -188,17 +188,58 @@
       }
 
       /*
-       * In a live deployment this is where you would POST to a backend
-       * or a service like Formspree / Netlify Forms.
-       * For the portfolio demo, we simulate a successful send.
+       * POST the form data to Formspree
        */
-      if (formSuccess) {
-        formSuccess.classList.add('is-visible');
-      }
-
-      contactForm.reset();
+      const formData = new FormData(contactForm);
+      
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(function(response) {
+        if (response.ok) {
+          if (formSuccess) {
+            formSuccess.classList.add('is-visible');
+          }
+          contactForm.reset();
+        } else {
+          if (formError) formError.style.display = 'block';
+        }
+      })
+      .catch(function(error) {
+        console.error('Form submission error:', error);
+        if (formError) formError.style.display = 'block';
+      });
     });
   }
+
+  /* ============================================================
+     4b. CONTACT FORM INPUT FILL STATE
+     Adds .has-content class when fields are not empty.
+     ============================================================ */
+  const formInputs = document.querySelectorAll('#contact-form input, #contact-form textarea, #contact-form select');
+  
+  function updateInputStates() {
+    formInputs.forEach(function (input) {
+      if (input.value.trim().length > 0) {
+        input.classList.add('has-content');
+      } else {
+        input.classList.remove('has-content');
+      }
+    });
+  }
+  
+  // Check on initial load (for browser autofill)
+  updateInputStates();
+  
+  // Update on input/change
+  formInputs.forEach(function (input) {
+    input.addEventListener('input', updateInputStates);
+    input.addEventListener('change', updateInputStates);
+  });
 
   /* ============================================================
      5. SCROLL REVEAL (Intersection Observer)

@@ -1044,6 +1044,14 @@ a:hover {
   box-shadow: 0 0 0 3px rgba(255, 139, 97, 0.18);
 }
 
+/* Form field filled state */
+.form-group input.has-content,
+.form-group textarea.has-content,
+.form-group select.has-content {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(47, 158, 68, 0.15);
+}
+
 .form-group textarea {
   height: 120px;
   resize: vertical;
